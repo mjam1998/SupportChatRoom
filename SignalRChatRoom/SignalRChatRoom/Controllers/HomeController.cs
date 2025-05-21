@@ -24,10 +24,11 @@ namespace SignalRCahtRoom.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+         public async Task<IActionResult> Index()
+ {
+     await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+     return View();
+ }
 
         public IActionResult Login()
         {
